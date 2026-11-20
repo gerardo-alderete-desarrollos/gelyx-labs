@@ -37,13 +37,15 @@ export function CaseStudy() {
               <li>✓ Seguro, escalable y mantenible</li>
             </ul>
           </Reveal>
-          <div className="relative h-80 overflow-hidden rounded-2xl border border-border">
-            <div
-              className="absolute inset-0 bg-[var(--brand-gradient)] opacity-20"
-              style={{ transform: `translateY(${offset}px) scale(1.2)` }}
+          <div className="relative h-80 overflow-hidden rounded-2xl border border-border bg-black">
+            <img
+              src="https://image.thum.io/get/width/800/crop/600/noanimate/https://gymerup-web.vercel.app/"
+              alt="GymerUp preview"
+              className="absolute inset-0 h-full w-full object-contain transition-transform duration-700"
+              style={{ transform: `translateY(${offset}px) scale(1.05)` }}
             />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="font-heading text-5xl font-bold text-foreground/80">GymerUp</span>
+            <div className="absolute inset-x-0 bottom-0 bg-black/60 p-4 backdrop-blur-md">
+              <span className="font-heading text-2xl font-bold text-white">GymerUp</span>
             </div>
           </div>
         </div>

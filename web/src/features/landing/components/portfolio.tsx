@@ -31,16 +31,20 @@ export function Portfolio({ projects }: { projects: Project[] }) {
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {items.map((p, i) => (
             <Reveal key={p.id} delay={i * 80}>
-              <article className="group relative h-80 overflow-hidden rounded-2xl border border-border bg-black transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-                {p.imageUrl ? (
-                  <img src={p.imageUrl} alt={p.name} className="absolute inset-0 h-full w-full object-contain transition-transform duration-700 group-hover:scale-105" />
-                ) : (
-                  <div className="absolute inset-0 bg-[var(--brand-gradient)]" />
-                )}
-                <div className="absolute inset-x-0 bottom-0 bg-black/75 p-5 backdrop-blur-md">
-                  <span className="text-xs font-medium uppercase tracking-wide text-white/70">{p.category ?? "Producto"}</span>
-                  <h3 className="mt-1 font-heading text-xl font-bold text-white">{p.name}</h3>
-                  <p className="mt-1 text-sm text-white/85">{p.shortDescription}</p>
+              <article className="group overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                <div className="relative h-52 overflow-hidden bg-black">
+                  {p.imageUrl ? (
+                    <img src={p.imageUrl} alt={p.name} className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105" />
+                  ) : (
+                    <div className="flex h-full items-center justify-center bg-[var(--brand-gradient)]">
+                      <span className="font-heading text-2xl font-bold text-white">{p.name}</span>
+                    </div>
+                  )}
+                </div>
+                <div className="p-5">
+                  <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{p.category ?? "Producto"}</span>
+                  <h3 className="mt-1 font-heading text-xl font-bold">{p.name}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{p.shortDescription}</p>
                   {p.url ? (
                     <a href={p.url} target="_blank" rel="noreferrer" className="mt-3 inline-flex w-fit items-center gap-1 rounded-full bg-[var(--brand-gradient)] px-4 py-1.5 text-sm font-medium text-white transition hover:opacity-90">
                       Visitar →
