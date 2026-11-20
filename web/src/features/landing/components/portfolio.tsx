@@ -14,6 +14,8 @@ const fallback = [
   { id: "contasync", name: "ContaSync", shortDescription: "Automatización contable y conciliación.", url: null, category: "Fintech", isFeatured: true },
 ];
 
+import { Reveal } from "./reveal";
+
 export function Portfolio({ projects }: { projects: Project[] }) {
   const items = projects.length ? projects : fallback;
   return (
@@ -24,21 +26,23 @@ export function Portfolio({ projects }: { projects: Project[] }) {
           Productos y plataformas desarrollados por GELYX Labs.
         </p>
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {items.map((p) => (
-            <article key={p.id} className="group overflow-hidden rounded-2xl border border-border bg-card">
-              <div className="flex h-40 items-center justify-center bg-[var(--brand-gradient)]/10">
-                <span className="font-heading text-2xl font-bold text-foreground">{p.name}</span>
-              </div>
-              <div className="p-6">
-                <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{p.category ?? "Producto"}</span>
-                <p className="mt-2 text-sm text-muted-foreground">{p.shortDescription}</p>
-                {p.url ? (
-                  <a href={p.url} target="_blank" rel="noreferrer" className="mt-4 inline-block text-sm font-medium text-primary hover:underline">
-                    Visitar →
-                  </a>
-                ) : null}
-              </div>
-            </article>
+          {items.map((p, i) => (
+            <Reveal key={p.id} delay={i * 80}>
+              <article className="group overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div className="flex h-40 items-center justify-center bg-[var(--brand-gradient)]/10 transition-transform duration-500 group-hover:scale-105">
+                  <span className="font-heading text-2xl font-bold text-foreground">{p.name}</span>
+                </div>
+                <div className="p-6">
+                  <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{p.category ?? "Producto"}</span>
+                  <p className="mt-2 text-sm text-muted-foreground">{p.shortDescription}</p>
+                  {p.url ? (
+                    <a href={p.url} target="_blank" rel="noreferrer" className="mt-4 inline-block text-sm font-medium text-primary hover:underline">
+                      Visitar →
+                    </a>
+                  ) : null}
+                </div>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>

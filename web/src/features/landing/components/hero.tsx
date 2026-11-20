@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { Counter } from "./counter";
+import { Reveal } from "./reveal";
 
 export function Hero() {
   return (
@@ -43,9 +45,9 @@ export function Hero() {
           <a href="#portafolio" className={buttonVariants({ variant: "outline", size: "lg" })}>Ver portafolio</a>
         </div>
         <div className="mt-16 grid grid-cols-2 gap-6 text-sm text-muted-foreground md:grid-cols-4">
-          <div><span className="font-heading text-2xl font-bold text-foreground">4</span><br />líneas de negocio</div>
-          <div><span className="font-heading text-2xl font-bold text-foreground">4+</span><br />productos propios</div>
-          <div><span className="font-heading text-2xl font-bold text-foreground">100%</span><br />enfoque práctico</div>
+          <div><span className="font-heading text-2xl font-bold text-foreground"><Counter to={4} /></span><br />líneas de negocio</div>
+          <div><span className="font-heading text-2xl font-bold text-foreground"><Counter to={4} suffix="+" /></span><br />productos propios</div>
+          <div><span className="font-heading text-2xl font-bold text-foreground"><Counter to={100} suffix="%" /></span><br />enfoque práctico</div>
           <div><span className="font-heading text-2xl font-bold text-foreground">MX</span><br />con proyección global</div>
         </div>
       </div>
