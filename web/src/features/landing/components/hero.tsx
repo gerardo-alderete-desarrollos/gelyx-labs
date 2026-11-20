@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Counter } from "./counter";
 import { Reveal } from "./reveal";
+import { AnimatedHeadline } from "./animated-headline";
 
 export function Hero() {
   return (
@@ -29,11 +30,7 @@ export function Hero() {
           Technology & Innovation · Ideas into reality
         </p>
         <h1 className="font-heading max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">
-          Convertimos tus ideas en{" "}
-          <span className="bg-[var(--brand-gradient)] bg-clip-text text-transparent">
-            soluciones digitales
-          </span>{" "}
-          que hacen crecer tu negocio.
+          <AnimatedHeadline text="Convertimos tus ideas en soluciones digitales que hacen crecer tu negocio." />
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
           En GELYX Labs diseñamos, desarrollamos e implementamos software a la medida para

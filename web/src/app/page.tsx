@@ -1,8 +1,10 @@
 import { apiFetch } from "@/lib/api/client";
 import { Hero } from "@/features/landing/components/hero";
 import { Marquee } from "@/features/landing/components/marquee";
+import { ClientLogos } from "@/features/landing/components/client-logos";
 import { Services } from "@/features/landing/components/services";
 import { Portfolio } from "@/features/landing/components/portfolio";
+import { CaseStudy } from "@/features/landing/components/case-study";
 import { Process } from "@/features/landing/components/process";
 import { Testimonials } from "@/features/landing/components/testimonials";
 import { QuoteSection } from "@/features/landing/components/quote-section";
@@ -39,8 +41,10 @@ export default async function HomePage() {
     <main className="min-h-screen bg-background text-foreground">
       <Hero />
       <Marquee />
+      <ClientLogos />
       <Services />
       <Portfolio projects={projects} />
+      <CaseStudy />
       <Process />
       <Testimonials />
       <QuoteSection />

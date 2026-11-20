@@ -3,6 +3,8 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { AppProviders } from "@/components/providers/app-providers";
 import { appName } from "@/lib/env";
+import { PageLoader } from "@/features/landing/components/page-loader";
+import { MagneticCursor } from "@/features/landing/components/magnetic-cursor";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { isAppLocale } from "@/i18n/routing";
 
@@ -25,6 +27,8 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   return (
     <html lang={locale} suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+        <PageLoader />
+        <MagneticCursor />
         <AppProviders
           locale={locale}
           messages={messages as typeof import("../../messages/es.json")}
