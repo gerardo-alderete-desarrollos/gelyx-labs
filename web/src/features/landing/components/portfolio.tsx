@@ -31,21 +31,19 @@ export function Portfolio({ projects }: { projects: Project[] }) {
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {items.map((p, i) => (
             <Reveal key={p.id} delay={i * 80}>
-              <article className="group overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                <div className="relative h-40 overflow-hidden bg-[var(--brand-gradient)]/10">
-                  {p.imageUrl ? (
-                    <img src={p.imageUrl} alt={p.name} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  ) : (
-                    <div className="flex h-full items-center justify-center">
-                      <span className="font-heading text-2xl font-bold text-foreground">{p.name}</span>
-                    </div>
-                  )}
-                </div>
-                <div className="p-6">
-                  <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{p.category ?? "Producto"}</span>
-                  <p className="mt-2 text-sm text-muted-foreground">{p.shortDescription}</p>
+              <article className="group relative h-72 overflow-hidden rounded-2xl border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                {p.imageUrl ? (
+                  <img src={p.imageUrl} alt={p.name} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                ) : (
+                  <div className="absolute inset-0 bg-[var(--brand-gradient)]" />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+                  <span className="text-xs font-medium uppercase tracking-wide text-white/70">{p.category ?? "Producto"}</span>
+                  <h3 className="mt-1 font-heading text-2xl font-bold">{p.name}</h3>
+                  <p className="mt-2 text-sm text-white/80">{p.shortDescription}</p>
                   {p.url ? (
-                    <a href={p.url} target="_blank" rel="noreferrer" className="mt-4 inline-block text-sm font-medium text-primary hover:underline">
+                    <a href={p.url} target="_blank" rel="noreferrer" className="mt-4 inline-flex w-fit items-center gap-1 rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium backdrop-blur transition hover:bg-white/25">
                       Visitar →
                     </a>
                   ) : null}
