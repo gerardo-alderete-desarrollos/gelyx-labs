@@ -1,0 +1,44 @@
+services:
+  - type: web
+    name: gelyx-labs-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ConnectionStrings__Default
+        sync: false
+      - key: Jwt__Secret
+        sync: false
+      - key: Jwt__Issuer
+        sync: false
+      - key: Jwt__Audience
+        sync: false
+      - key: Cors__AllowedOrigins
+        sync: false
+      - key: SEED_ADMIN_EMAIL
+        sync: false
+      - key: SEED_ADMIN_PASSWORD
+        sync: false
+      - key: MIGRATE_ON_STARTUP
+        value: "true"
+      - key: Auth__AllowSelfRegistration
+        value: "false"
+      - key: Email__Provider
+        value: Logging
+      - key: Email__ApiKey
+        sync: false
+      - key: Email__From
+        sync: false
+      - key: Email__SmtpHost
+        sync: false
+      - key: Email__SmtpPort
+        sync: false
+      - key: Email__SmtpUseSsl
+        sync: false
+      - key: Email__SmtpUserName
+        sync: false
+      - key: Email__SmtpPassword
+        sync: false

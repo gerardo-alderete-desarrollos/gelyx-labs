@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="src/GelyxLabs.Api/GelyxLabs.Api.csproj" />
+  <Project Path="src/GelyxLabs.Application/GelyxLabs.Application.csproj" />
+  <Project Path="src/GelyxLabs.Domain/GelyxLabs.Domain.csproj" />
+  <Project Path="src/GelyxLabs.Infrastructure/GelyxLabs.Infrastructure.csproj" />
+  <Project Path="tests/GelyxLabs.UnitTests/GelyxLabs.UnitTests.csproj" />
+  <Project Path="tests/GelyxLabs.IntegrationTests/GelyxLabs.IntegrationTests.csproj" />
+</Solution>

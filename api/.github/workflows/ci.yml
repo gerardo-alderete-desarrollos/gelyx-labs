@@ -1,0 +1,23 @@
+name: API CI
+
+on:
+  pull_request:
+    branches:
+      - develop
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - run: dotnet restore GelyxLabs.slnx
+      - run: dotnet build GelyxLabs.slnx --configuration Release --no-restore
+      - run: dotnet test GelyxLabs.slnx --configuration Release --no-build
